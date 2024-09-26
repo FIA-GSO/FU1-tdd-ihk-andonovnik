@@ -58,10 +58,19 @@ def test_berechne_note__unter_0_pkt():
     with pytest.raises(ValueError):
         berechne_note(punkte, max_punkte)
 
-def test_berechne_note__type_error():
+def test_berechne_note__type_error_punkte():
     # Arrange
     punkte = 'test'
     max_punkte = 100
+
+    # Act
+    with pytest.raises(ValueError):
+        berechne_note(punkte, max_punkte)
+
+def test_berechne_note__type_error_max_punkte():
+    # Arrange
+    punkte = 20
+    max_punkte = 'test'
 
     # Act
     with pytest.raises(ValueError):
